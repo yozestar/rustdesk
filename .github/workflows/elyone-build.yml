@@ -1,0 +1,21 @@
+name: Elyone Build
+
+on:
+  workflow_dispatch:
+
+env:
+  FLUTTER_VERSION: "3.24.5"
+  RUST_VERSION: "1.75"
+  VERSION: "1.4.6"
+  VCPKG_BINARY_SOURCES: "clear;x-gha,readwrite"
+  VCPKG_COMMIT_ID: "120deac3062162151622ca4860575a33844ba10b"
+  RS_PUB_KEY: "ZXum24+yWvJ5zJ2EZHE6TPZ6JHFKQ64mdCJofEGSdeI="
+  RENDEZVOUS_SERVER: "178.104.71.181"
+
+jobs:
+  build-flutter:
+    uses: ./.github/workflows/flutter-build.yml
+    with:
+      upload-artifact: true
+    secrets: inherit
+
